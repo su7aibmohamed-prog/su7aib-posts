@@ -1,4 +1,31 @@
-{"next_index": 1,
+{
+ "next_index": 2,
  "pattern": "index % 3 == 0 -> dark, else light (dark, light, light, ...)",
- "posts": [{"index": 0, "theme": "dark", "hadith": "البخاري 6540", "file": "posts/001_bukhari6540_dark.jpg", "date": "2026-11-16"}],
- "used_hadith": ["البخاري 13","البخاري 5027","البخاري 6018","البخاري 10","البخاري 6114","البخاري 6412","البخاري 6540"]}
+ "posts": [
+  {
+   "index": 0,
+   "theme": "dark",
+   "hadith": "البخاري 6540",
+   "file": "posts/001_bukhari6540_dark.jpg",
+   "date": "2026-11-16"
+  },
+  {
+   "index": 1,
+   "theme": "light",
+   "hadith": "البخاري 6014",
+   "file": "posts/002_bukhari6014_light.jpg",
+   "date": "2026-11-16",
+   "media_id": "17945449152379750"
+  }
+ ],
+ "used_hadith": [
+  "البخاري 13",
+  "البخاري 5027",
+  "البخاري 6018",
+  "البخاري 10",
+  "البخاري 6114",
+  "البخاري 6412",
+  "البخاري 6540",
+  "البخاري 6014"
+ ]
+}
