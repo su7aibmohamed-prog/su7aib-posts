@@ -1,0 +1,4 @@
+{"next_index": 1,
+ "pattern": "index % 3 == 0 -> dark, else light (dark, light, light, ...)",
+ "posts": [{"index": 0, "theme": "dark", "hadith": "البخاري 6540", "file": "posts/001_bukhari6540_dark.jpg", "date": "2026-11-16"}],
+ "used_hadith": ["البخاري 13","البخاري 5027","البخاري 6018","البخاري 10","البخاري 6114","البخاري 6412","البخاري 6540"]}
