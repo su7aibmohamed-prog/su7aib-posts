@@ -1,5 +1,5 @@
 {
- "next_index": 5,
+ "next_index": 6,
  "pattern": "index % 3 == 0 -> dark, else light (dark, light, light, ...)",
  "posts": [
   {
@@ -40,6 +40,14 @@
    "file": "posts/005_bukhari6508_light.jpg",
    "date": "2026-11-18",
    "media_id": "18119541448817658"
+  },
+  {
+   "index": 5,
+   "theme": "light",
+   "hadith": "البخاري 6416",
+   "file": "posts/006_bukhari6416_light.jpg",
+   "date": "2026-11-18",
+   "media_id": "18101678795445375"
   }
  ],
  "used_hadith": [
@@ -53,6 +61,7 @@
   "البخاري 6014",
   "البخاري 6474",
   "البخاري 6446",
-  "البخاري 6508"
+  "البخاري 6508",
+  "البخاري 6416"
  ]
 }
