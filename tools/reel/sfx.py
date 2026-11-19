@@ -1,6 +1,6 @@
-import numpy as np,json,wave
+import numpy as np,json,wave,sys
 from scipy.signal import butter,sosfilt
-SR=48000;D=20;N=int(SR*D);L=np.zeros(N);R=np.zeros(N);g=np.random.default_rng(3)
+SR=48000;D=float(sys.argv[1]) if len(sys.argv)>1 else 20;N=int(SR*D);L=np.zeros(N);R=np.zeros(N);g=np.random.default_rng(3)
 def T(d):return np.arange(int(d*SR))/SR
 def bp(x,lo,hi):return sosfilt(butter(2,[lo,hi],'band',fs=SR,output='sos'),x)
 def lp(x,f):return sosfilt(butter(2,f,'low',fs=SR,output='sos'),x)
@@ -43,9 +43,14 @@ def bloom():
     t=T(2.5);x=bp(g.standard_normal(len(t)),2000,7000)*ad(t,.02,.5)*.25
     return x+np.sin(2*np.pi*48*t)*ad(t,.01,.5)*.6+.3*lp(g.standard_normal(len(t)),500)*ad(t,.02,.3),0
 def sub_soft():return sub(1.8,42)[0]*.7,0
+def key():
+    t=T(.06);c=bp(g.standard_normal(len(t)),1800,6000)*ad(t,.0005,.006);b=np.sin(2*np.pi*g.uniform(380,520)*t)*ad(t,.001,.012)*.6;return (c+b)*.7,.4
+def plip():t=T(.35);return sweep(1400,380,t)*ad(t,.002,.06)+.2*np.sin(2*np.pi*900*t)*ad(t,.12,.08)*(t>.12),0
+def cut():
+    t=T(1.4);x=bp(g.standard_normal(len(t)),300,3000)*(.5+.5*np.sin(2*np.pi*14*t)**2);e=np.clip(1-(t-.7)/.08,0,1)*np.minimum(1,t/.1);return x*e*.6,0
 def room():t=T(D);return lp(g.standard_normal(len(t)),260),0
-F=dict(impact=impact,impact_big=lambda:impact(1.8),impact_s=impact_s,shatter=shatter,whoosh=whoosh,riser_s=lambda:riser(.45,400,5000),reverse=reverse,sub=sub,tick=tick,ticks=ticks,air=air,line=line,stretch=stretch,swell=swell,bloom=bloom,sub_soft=sub_soft,room=room)
-GAIN=dict(room=.07,impact=1,impact_big=1.3,impact_s=.8,shatter=.55,whoosh=.7,riser_s=.5,reverse=.6,sub=.9,tick=.6,ticks=.5,air=.5,line=.5,stretch=.6,swell=.6,bloom=.8,sub_soft=.8)
+F=dict(key=key,plip=plip,cut=cut,impact=impact,impact_big=lambda:impact(1.8),impact_s=impact_s,shatter=shatter,whoosh=whoosh,riser_s=lambda:riser(.45,400,5000),reverse=reverse,sub=sub,tick=tick,ticks=ticks,air=air,line=line,stretch=stretch,swell=swell,bloom=bloom,sub_soft=sub_soft,room=room)
+GAIN=dict(key=.32,plip=.7,cut=.45,room=.07,impact=1,impact_big=1.3,impact_s=.8,shatter=.55,whoosh=.7,riser_s=.5,reverse=.6,sub=.9,tick=.6,ticks=.5,air=.5,line=.5,stretch=.6,swell=.6,bloom=.8,sub_soft=.8)
 for t0,k in json.load(open('sfx.json')):
     s,w=F[k]();s=s/max(1e-9,np.abs(s).max())*GAIN[k]
     if k=='room':

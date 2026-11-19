@@ -6,3 +6,7 @@ tools/reel/g/
 tools/reel/chk/
 tools/reel/*.wav
 tools/reel/cover.png
+tools/reel/out.mp4
+tools/reel/sfx.json
+tools/reel/raw.wav
+tools/reel/mix.wav
