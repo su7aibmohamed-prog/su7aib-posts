@@ -1,85 +1,94 @@
 {
- "next_index": 7,
- "pattern": "index % 3 == 0 -> REEL (kinetic typography, dark #791C2E, see tools/reel/STYLE.md); else light cream card. Grid: reel column + two light columns. (index 0 and 3 and 6 were dark image cards before the change on 2026-11-19)",
- "posts": [
-  {
-   "index": 0,
-   "theme": "dark",
-   "hadith": "البخاري 6540",
-   "file": "posts/001_bukhari6540_dark.jpg",
-   "date": "2026-11-16"
-  },
-  {
-   "index": 1,
-   "theme": "light",
-   "hadith": "البخاري 6014",
-   "file": "posts/002_bukhari6014_light.jpg",
-   "date": "2026-11-16",
-   "media_id": "17945449152379750"
-  },
-  {
-   "index": 2,
-   "theme": "light",
-   "hadith": "البخاري 6474",
-   "file": "posts/003_bukhari6474_light.jpg",
-   "date": "2026-11-17",
-   "media_id": "18014130950992891"
-  },
-  {
-   "index": 3,
-   "theme": "dark",
-   "hadith": "البخاري 6446",
-   "file": "posts/004_bukhari6446_dark.jpg",
-   "date": "2026-11-17",
-   "media_id": "18388437970237832"
-  },
-  {
-   "index": 4,
-   "theme": "light",
-   "hadith": "البخاري 6508",
-   "file": "posts/005_bukhari6508_light.jpg",
-   "date": "2026-11-18",
-   "media_id": "18119541448817658"
-  },
-  {
-   "index": 5,
-   "theme": "light",
-   "hadith": "البخاري 6416",
-   "file": "posts/006_bukhari6416_light.jpg",
-   "date": "2026-11-18",
-   "media_id": "18101678795445375"
-  },
-  {
-   "index": 6,
-   "theme": "dark",
-   "hadith": "البخاري 6024",
-   "file": "posts/007_bukhari6024_dark.jpg",
-   "date": "2026-11-19",
-   "media_id": "18084958619341497"
-  }
- ],
- "used_hadith": [
-  "البخاري 13",
-  "البخاري 5027",
-  "البخاري 6018",
-  "البخاري 10",
-  "البخاري 6114",
-  "البخاري 6412",
-  "البخاري 6540",
-  "البخاري 6014",
-  "البخاري 6474",
-  "البخاري 6446",
-  "البخاري 6508",
-  "البخاري 6416",
-  "البخاري 6024"
- ],
- "reels": [
-  {
-   "hadith": "البخاري 6024",
-   "file": "reels/001_bukhari6024_rifq.mp4",
-   "style": "kinetic typography (no characters), dark theme",
-   "date": "2026-11-19",
-   "media_id": "18111015683338999"
-  }
- ]
+  "next_index": 8,
+  "pattern": "index % 3 == 0 -> REEL (kinetic typography, dark #791C2E, see tools/reel/STYLE.md); else light cream card. Grid: reel column + two light columns. (index 0 and 3 and 6 were dark image cards before the change on 2026-11-19)",
+  "posts": [
+    {
+      "index": 0,
+      "theme": "dark",
+      "hadith": "البخاري 6540",
+      "file": "posts/001_bukhari6540_dark.jpg",
+      "date": "2026-11-16"
+    },
+    {
+      "index": 1,
+      "theme": "light",
+      "hadith": "البخاري 6014",
+      "file": "posts/002_bukhari6014_light.jpg",
+      "date": "2026-11-16",
+      "media_id": "17945449152379750"
+    },
+    {
+      "index": 2,
+      "theme": "light",
+      "hadith": "البخاري 6474",
+      "file": "posts/003_bukhari6474_light.jpg",
+      "date": "2026-11-17",
+      "media_id": "18014130950992891"
+    },
+    {
+      "index": 3,
+      "theme": "dark",
+      "hadith": "البخاري 6446",
+      "file": "posts/004_bukhari6446_dark.jpg",
+      "date": "2026-11-17",
+      "media_id": "18388437970237832"
+    },
+    {
+      "index": 4,
+      "theme": "light",
+      "hadith": "البخاري 6508",
+      "file": "posts/005_bukhari6508_light.jpg",
+      "date": "2026-11-18",
+      "media_id": "18119541448817658"
+    },
+    {
+      "index": 5,
+      "theme": "light",
+      "hadith": "البخاري 6416",
+      "file": "posts/006_bukhari6416_light.jpg",
+      "date": "2026-11-18",
+      "media_id": "18101678795445375"
+    },
+    {
+      "index": 6,
+      "theme": "dark",
+      "hadith": "البخاري 6024",
+      "file": "posts/007_bukhari6024_dark.jpg",
+      "date": "2026-11-19",
+      "media_id": "18084958619341497"
+    },
+    {
+      "index": 7,
+      "theme": "light",
+      "hadith": "البخاري 6307",
+      "file": "posts/008_bukhari6307_light.jpg",
+      "date": "2026-11-19",
+      "media_id": "18022522223737222"
+    }
+  ],
+  "used_hadith": [
+    "البخاري 13",
+    "البخاري 5027",
+    "البخاري 6018",
+    "البخاري 10",
+    "البخاري 6114",
+    "البخاري 6412",
+    "البخاري 6540",
+    "البخاري 6014",
+    "البخاري 6474",
+    "البخاري 6446",
+    "البخاري 6508",
+    "البخاري 6416",
+    "البخاري 6024",
+    "البخاري 6307"
+  ],
+  "reels": [
+    {
+      "hadith": "البخاري 6024",
+      "file": "reels/001_bukhari6024_rifq.mp4",
+      "style": "kinetic typography (no characters), dark theme",
+      "date": "2026-11-19",
+      "media_id": "18111015683338999"
+    }
+  ]
 }
