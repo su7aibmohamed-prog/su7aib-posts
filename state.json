@@ -1,6 +1,6 @@
 {
  "next_index": 7,
- "pattern": "index % 3 == 0 -> dark, else light (dark, light, light, ...)",
+ "pattern": "index % 3 == 0 -> REEL (kinetic typography, dark #791C2E, see tools/reel/STYLE.md); else light cream card. Grid: reel column + two light columns. (index 0 and 3 and 6 were dark image cards before the change on 2026-11-19)",
  "posts": [
   {
    "index": 0,

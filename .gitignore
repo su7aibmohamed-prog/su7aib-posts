@@ -1,3 +1,8 @@
 tools/f/
 tools/page.html
 tools/fit.html
+tools/reel/page.html
+tools/reel/g/
+tools/reel/chk/
+tools/reel/*.wav
+tools/reel/cover.png
