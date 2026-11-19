@@ -76,7 +76,7 @@ function S3(t){const A=env(t,14.1,23.2);if(!A)return;ctx.save();ctx.globalAlpha=
   softGlow(CX,(VIS_Y+110)-240,220,.5*b);for(const t0 of [19.55,20.0])ring(CX,(VIS_Y+110)-240,lerp(20,380,eO(prog(t,t0,1.4))),2,GOLD,(1-prog(t,t0,1.4))*.6)}
  const aj=prog(t,21.5,1.2);if(aj>0&&aj<1)ring(CX,(VIS_Y+110)+220,lerp(10,300,eO(aj)),3,GOLD2,1-aj);
  for(const r of RAIN){const k=prog(t,22.75+r.d*.6,1.1*r.sp);if(k<=0||k>=1)continue;const y=lerp((VIS_Y+110)-260,(VIS_Y+110)+260,eI(k)*.6+k*.4);softGlow(r.x*.7+CX*.3,y,24,.9*(1-k));ctx.beginPath();ctx.arc(r.x*.7+CX*.3,y,r.s*.6,0,7);ctx.fillStyle=GOLD2;ctx.globalAlpha=A*(1-k);ctx.fill();ctx.globalAlpha=A}
- pill('أبو داود ١٤٩٣ · الترمذي ٣٤٧٥ · صحّحه الألباني',1680,eO(prog(t,16.6,.6)));ctx.restore()}
+ pill('أبو داود ١٤٩٣ · الترمذي ٣٤٧٥ · صحّحه الألباني',1615,eO(prog(t,16.6,.6)));ctx.restore()}
 function S4(t){const A=env(t,23.2,29.4);if(!A)return;ctx.save();ctx.globalAlpha=A;
  line([['تخيّل',23.24,1],['كلمات…',23.74]],600,100,t,{ul:false});
  line([['ما',24.3],['تأخذ',24.46],['منك',24.76],['ثواني',25.06,1]],750,70,t,{w:400});
@@ -123,9 +123,13 @@ function S7(t){const A=env(t,40.0,47.0);if(!A)return;ctx.save();ctx.globalAlpha=
 function outro(t){if(t<46.9)return;const k=prog(t,47.0,.6);ctx.save();ctx.globalAlpha=eO(k)*(1-prog(t,DUR-.5,.45));const y=960;ctx.font='700 54px In';ctx.textBaseline='middle';
  ctx.fillStyle=BONE;ctx.textAlign='right';ctx.fillText('20',CX-150,y-34);ctx.fillStyle=GOLD;ctx.fillText('26',CX-150,y+34);ctx.fillStyle=BONE;ctx.fillRect(CX-134,y-66,3,132*eIO(prog(t,47.1,.5)));
  ctx.textAlign='left';ctx.letterSpacing='6px';ctx.fillStyle=GOLD;ctx.fillText('CRAFTED BY',CX-112+30*(1-eO(k)),y-34);ctx.fillStyle=BONE;ctx.fillText('@SUD.REELS',CX-112+50*(1-eO(prog(t,47.05,.6))),y+34);ctx.restore()}
+// handle tag: [IG icon] | @SUD.REELS  (icon on the left, thin divider)
+function handleTag(cx,y,al){ctx.save();ctx.globalAlpha=al;ctx.font='700 28px In';ctx.letterSpacing='4px';const tw=ctx.measureText('@SUD.REELS').width;const IC=34,G=18;const tot=IC+G*2+2+tw;let x=cx-tot/2;
+ ctx.strokeStyle=BONE;ctx.lineWidth=3;ctx.beginPath();ctx.roundRect(x,y-IC/2,IC,IC,10);ctx.stroke();ctx.beginPath();ctx.arc(x+IC/2,y,7.5,0,7);ctx.stroke();ctx.beginPath();ctx.arc(x+IC-8,y-IC/2+8,2.4,0,7);ctx.fillStyle=BONE;ctx.fill();
+ x+=IC+G;ctx.fillStyle=BONE;ctx.globalAlpha=al*.7;ctx.fillRect(x,y-15,2,30);ctx.globalAlpha=al;x+=2+G;ctx.textAlign='left';ctx.textBaseline='middle';ctx.fillText('@SUD.REELS',x,y+1);ctx.restore()}
 window.SFX=[[0,'room'],[0.1,'line'],[2.1,'air'],[4.6,'whoosh'],[4.75,'swell'],[10.12,'bloom'],[14.1,'whoosh'],[19.45,'bloom'],[21.5,'air'],[22.75,'ticks'],[23.2,'whoosh'],[24.4,'ticks'],[28.9,'air'],[29.4,'whoosh'],[31.6,'swell'],[34.4,'whoosh'],[36.4,'line'],[40.0,'whoosh'],[40.5,'tick'],[42.2,'air'],[45.8,'swell'],[47.0,'sub_soft'],[47.1,'line']];
 function draw(t){ctx.setTransform(1,0,0,1,0,0);ctx.filter='none';ctx.globalAlpha=1;bg(t);S1(t);S2(t);S3(t);S4(t);S5(t);S6(t);S7(t);outro(t);
- ctx.globalAlpha=.45;ctx.font='700 26px In';ctx.textAlign='center';ctx.fillStyle=BONE;ctx.letterSpacing='4px';if(t<46.8)ctx.fillText('@SUD.REELS',CX,1800);ctx.letterSpacing='0px';ctx.globalAlpha=1;
+ if(t<46.8)handleTag(CX,1730,.6);
  ctx.drawImage(GR[Math.floor(t*24)%4],0,0,W,H);const f=prog(t,DUR-.4,.4);if(f>0){ctx.globalAlpha=f;ctx.fillStyle=BG_OUT;ctx.fillRect(0,0,W,H);ctx.globalAlpha=1}}
 window.render=t=>{draw(t);return cv.toDataURL('image/png')};
 window.drawCover=()=>{ctx.setTransform(1,0,0,1,0,0);ctx.filter='none';bg(3);
