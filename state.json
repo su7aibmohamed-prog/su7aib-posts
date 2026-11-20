@@ -1,5 +1,5 @@
 {
-  "next_index": 8,
+  "next_index": 9,
   "pattern": "index % 3 == 0 -> REEL (kinetic typography, dark #791C2E, see tools/reel/STYLE.md); else light cream card. Grid: reel column + two light columns. (index 0 and 3 and 6 were dark image cards before the change on 2026-11-19)",
   "posts": [
     {
@@ -64,6 +64,14 @@
       "file": "posts/008_bukhari6307_light.jpg",
       "date": "2026-11-19",
       "media_id": "18022522223737222"
+    },
+    {
+      "index": 8,
+      "theme": "light",
+      "hadith": "مسلم 2626",
+      "file": "posts/009_muslim2626_light.jpg",
+      "date": "2026-11-20",
+      "media_id": "18144248200626677"
     }
   ],
   "used_hadith": [
@@ -80,7 +88,8 @@
     "البخاري 6508",
     "البخاري 6416",
     "البخاري 6024",
-    "البخاري 6307"
+    "البخاري 6307",
+    "مسلم 2626"
   ],
   "reels": [
     {
