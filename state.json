@@ -1,5 +1,5 @@
 {
-  "next_index": 9,
+  "next_index": 10,
   "pattern": "index % 3 == 0 -> REEL (kinetic typography, dark #791C2E, see tools/reel/STYLE.md); else light cream card. Grid: reel column + two light columns. (index 0 and 3 and 6 were dark image cards before the change on 2026-11-19)",
   "posts": [
     {
@@ -89,7 +89,12 @@
     "البخاري 6416",
     "البخاري 6024",
     "البخاري 6307",
-    "مسلم 2626"
+    "مسلم 2626",
+    "البخاري 6406",
+    "البخاري 6405",
+    "البخاري 6384",
+    "مسلم 2137",
+    "مسلم 2698"
   ],
   "reels": [
     {
@@ -98,6 +103,21 @@
       "style": "kinetic typography (no characters), dark theme",
       "date": "2026-11-19",
       "media_id": "18111015683338999"
+    },
+    {
+      "index": 9,
+      "hadith": [
+        "البخاري 6406",
+        "البخاري 6405",
+        "البخاري 6384",
+        "مسلم 2137",
+        "مسلم 2698"
+      ],
+      "file": "reels/002_adhkar5_khafifa.mp4",
+      "cover": "reels/002_adhkar5_khafifa_cover.jpg",
+      "style": "listicle kinetic typography, ivory/burgundy",
+      "date": "2026-11-20",
+      "media_id": "17990560943922554"
     }
   ]
 }
