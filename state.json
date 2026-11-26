@@ -1,5 +1,5 @@
 {
-  "next_index": 21,
+  "next_index": 22,
   "pattern": "index % 3 == 0 -> REEL (kinetic typography, dark #791C2E, see tools/reel/STYLE.md); else light cream card. Grid: reel column + two light columns. (index 0 and 3 and 6 were dark image cards before the change on 2026-11-19)",
   "posts": [
     {
@@ -169,7 +169,8 @@
     "البخاري 5986",
     "مسلم 2699",
     "مسلم 1054",
-    "البخاري 15"
+    "البخاري 15",
+    "مسلم 1631"
   ],
   "reels": [
     {
@@ -220,6 +221,15 @@
       "style": "listicle kinetic typography, ivory/burgundy",
       "date": "2026-11-25",
       "media_id": "17875088136643340"
+    },
+    {
+      "index": 21,
+      "hadith": "مسلم 1631",
+      "file": "reels/006_muslim1631_thalath3.mp4",
+      "cover": "reels/006_muslim1631_thalath3_cover.jpg",
+      "style": "listicle kinetic typography, ivory/burgundy",
+      "date": "2026-11-26",
+      "media_id": "17957970432342288"
     }
   ]
 }
