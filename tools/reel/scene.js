@@ -1,4 +1,4 @@
-// SU7IAB reel — "6 rights of a Muslim over a Muslim" (Muslim 2162). Listicle + light + particles + typing.
+// SU7IAB reel — "3 deeds that continue after death" (Muslim 1631). Listicle + light + particles + typing.
 const cv=document.getElementById('c'),ctx=cv.getContext('2d');
 const W=1080,H=1920,CX=540;
 {const A=CanvasRenderingContext2D.prototype.arc,E=CanvasRenderingContext2D.prototype.ellipse;ctx.arc=function(x,y,r,...q){return A.call(this,x,y,Math.max(0,r),...q)};ctx.ellipse=function(x,y,a,b,...q){return E.call(this,x,y,Math.max(0,a),Math.max(0,b),...q)}}
@@ -39,108 +39,101 @@ function pill(s,y,a){if(a<=0)return;ctx.save();ctx.globalAlpha*=a;ctx.font='500 
  ctx.direction='rtl';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=GOLD;ctx.fillText(s,CX,y+2);ctx.restore()}
 function progressBar(t){if(t<T0-.3||t>OUT+.3)return;const a=eO(prog(t,T0-.3,.4))*(1-prog(t,OUT,.3));ctx.save();ctx.globalAlpha=a;const n=ITEMS.length,gap=14,w=(800-gap*(n-1))/n;
  ITEMS.forEach((it,i)=>{const x=940-(i+1)*w-i*gap;/*RTL: first segment on the right*/ctx.fillStyle='rgba(142,59,70,.18)';ctx.beginPath();ctx.roundRect(x,170,w,8,4);ctx.fill();const p=prog(t,it.t0,it.d);if(p>0){ctx.fillStyle=GOLD;ctx.beginPath();ctx.roundRect(x+w*(1-p),170,w*p,8,4);ctx.fill()}});ctx.restore()}
-// ------------- content: Muslim 2699 (Abu Huraira). Verified Nov 25 2026 via sunnah.com muslim:2699a (search-matched text+translation), hadeethenc 4801; dorar.net fetch unavailable.
-// "الجزاء من جنس العمل" — Ibn Rajab, Jami' al-Ulum wal-Hikam (sharh of this hadith).
+// ------------- content: Muslim 1631 (Abu Huraira). Verified Nov 26 2026: hadithunlocked muslim:1631 (Arabic + sunnah.com/Siddiqui translation), hadeethenc 65566 (صحيح مسلم 1631, صحيح), sunnah.com riyadussalihin:949 ([Muslim]); dorar.net + sunnah.com/muslim:1631 fetch unavailable.
 const ITEMS=[
- {n:'١',title:'تفرّج كربة',txt:'«مَن نفَّسَ عن مؤمنٍ كُرْبةً من كُرَبِ الدنيا، نفَّسَ اللهُ عنه كُرْبةً من كُرَبِ يومِ القيامة»',ic:'relief',d:4.2},
- {n:'٢',title:'تيسّر على معسر',txt:'«ومَن يسَّرَ على مُعْسِرٍ، يسَّرَ اللهُ عليه في الدنيا والآخرة»',ic:'ease',d:3.8},
- {n:'٣',title:'تستر أخوك',txt:'«ومَن سَتَرَ مسلماً، سَتَرَه اللهُ في الدنيا والآخرة»',ic:'cover',d:3.6},
- {n:'٤',title:'تعين أخوك',txt:'«واللهُ في عَوْنِ العبدِ ما كان العبدُ في عَوْنِ أخيه»',ic:'help',d:3.8},
- {n:'٥',title:'تطلب العلم',txt:'«ومَن سلَكَ طريقاً يلتمسُ فيه عِلْماً، سهَّلَ اللهُ له به طريقاً إلى الجنة»',ic:'path',d:4.2}];
-const SRC='عن أبي هريرة · صحيح مسلم ٢٦٩٩';
-const TI=2.9,DI=2.4,T0=TI+DI;let acc=T0;for(const it of ITEMS){it.t0=acc;acc+=it.d}const OUT=acc,DUR=OUT+3.0;window.DUR=DUR;
-const KW=.085;
+ {n:'١',title:'صدقة جارية',txt:'«إلا مِن صَدَقَةٍ جَارِيَةٍ»',ic:'flow',d:4.3},
+ {n:'٢',title:'علم يُنتفَع بيهو',txt:'«أو عِلْمٍ يُنْتَفَعُ بِهِ»',ic:'light',d:4.3},
+ {n:'٣',title:'ولد صالح يدعو ليك',txt:'«أو وَلَدٍ صَالِحٍ يَدْعُو لَهُ»',ic:'dua',d:4.5}];
+const SRC='عن أبي هريرة · صحيح مسلم ١٦٣١';
+const TI=2.9,DI=4.6,T0=TI+DI;let acc=T0;for(const it of ITEMS){it.t0=acc;acc+=it.d}const OUT=acc,DUR=OUT+3.0;window.DUR=DUR;
+const KW=.12;
+const HAD='«إذا ماتَ الإنسانُ انقطَعَ عنه عملُه إلا مِن ثلاثةٍ»';
 // ------------- SFX
-window.SFX=[[0,'room'],[0.15,'impact_s'],[0.6,'impact'],[1.3,'air'],[1.9,'tick'],[2.6,'whoosh'],
- [TI,'sub_soft'],[TI+.1,'swell'],[TI+.35,'line'],[TI+.9,'tick'],[TI+1.4,'impact_s'],[TI+1.45,'bloom'],[T0-.3,'whoosh']];
+window.SFX=[[0,'room'],[0.15,'impact_s'],[0.6,'impact'],[1.15,'line'],[1.45,'cut'],[1.55,'shatter'],[1.95,'bloom'],[2.25,'tick'],[2.6,'whoosh'],
+ [TI,'sub_soft'],[TI+.1,'ticks'],[TI+.75,'stretch'],[TI+1.15,'sub'],[TI+1.6,'tick']];
+{const ws=HAD.split(' ').length;for(let k=0;k<ws;k++)SFX.push([TI+1.7+k*KW,'key'])}
+SFX.push([TI+2.9,'bloom'],[TI+3.4,'tick'],[T0-.3,'whoosh']);
 for(const it of ITEMS){SFX.push([it.t0,'sub_soft'],[it.t0+.05,'tick']);
- const ws=it.txt.split(' ').length;for(let k=0;k<ws;k++)SFX.push([it.t0+.95+k*KW,'key']);
- if(it.ic=='relief')SFX.push([it.t0+.25,'sub'],[it.t0+.8,'reverse'],[it.t0+1.25,'bloom']);
- if(it.ic=='ease')SFX.push([it.t0+.3,'ticks'],[it.t0+.75,'stretch'],[it.t0+1.2,'plip'],[it.t0+1.3,'bloom']);
- if(it.ic=='cover')SFX.push([it.t0+.3,'plip'],[it.t0+.7,'air'],[it.t0+1.2,'swell'],[it.t0+1.5,'bloom']);
- if(it.ic=='help')SFX.push([it.t0+.3,'line'],[it.t0+.75,'impact_s'],[it.t0+1.1,'riser_s'],[it.t0+1.5,'bloom']);
- if(it.ic=='path')SFX.push([it.t0+.3,'air'],[it.t0+.6,'line'],[it.t0+1.4,'swell'],[it.t0+1.7,'bloom']);
+ const ws=it.txt.split(' ').length;for(let k=0;k<ws;k++)SFX.push([it.t0+1.0+k*KW,'key']);
+ if(it.ic=='flow')SFX.push([it.t0+.3,'plip'],[it.t0+.6,'air'],[it.t0+1.2,'plip'],[it.t0+1.8,'plip'],[it.t0+2.0,'bloom']);
+ if(it.ic=='light')SFX.push([it.t0+.3,'swell'],[it.t0+.9,'tick'],[it.t0+1.3,'ticks'],[it.t0+1.9,'bloom']);
+ if(it.ic=='dua')SFX.push([it.t0+.3,'sub_soft'],[it.t0+.7,'riser_s'],[it.t0+1.4,'air'],[it.t0+2.0,'swell'],[it.t0+2.3,'bloom']);
  if(it!==ITEMS[ITEMS.length-1])SFX.push([it.t0+it.d-.3,'whoosh'])}
 SFX.push([OUT-.3,'whoosh'],[OUT+.2,'air'],[OUT+1.0,'air'],[OUT+2.0,'sub_soft'],[OUT+2.05,'line']);
 const IY=780;
+function sprout(x,y,g,sc=1){if(g<=0)return;ctx.save();ctx.translate(x,y);ctx.scale(sc,sc);const h=lerp(0,150,eO(g));ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(10,-h*.5,0,-h);stroke(6,GOLD2);
+ for(const [sd,f] of[[1,.55],[-1,.8]]){const q=eOB(prog(g,f*.8,.35),2);if(q<=0)continue;ctx.save();ctx.translate(0,-h*f);ctx.rotate(sd*.6);ctx.scale(q,q);ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(sd*30,-34,sd*70,-10);ctx.quadraticCurveTo(sd*30,14,0,0);ctx.fillStyle='rgba(142,59,70,.25)';ctx.fill();stroke(4,GOLD2);ctx.restore()}ctx.restore()}
 function icon(kind,t,t0,a){const k=t-t0;ctx.save();ctx.globalAlpha*=a;const ent=eOB(prog(t,t0+.15,.5),2);ctx.translate(CX,IY);ctx.scale(ent,ent);ctx.translate(-CX,-IY);
  softGlow(CX,IY,260,.18);
- if(kind=='relief'){ // a heavy block presses a circle flat; it lifts away and the circle breathes free
-  const lift=eIO(prog(k,.8,.6));const press=eO(prog(k,.15,.4))*(1-lift);
-  const by=lerp(IY-330,IY-95,eO(prog(k,.15,.35)))-lift*260;const jx=press>.5&&lift<.05?Math.sin(t*70)*3:0;
-  const sq=lerp(1,.62,press),br=1+(lift>.9?.02*Math.sin(t*3):0);
-  ctx.save();ctx.translate(CX,IY+120);ctx.scale((2-sq)*br,sq*br);ctx.translate(0,-80);ctx.beginPath();ctx.arc(0,0,80,0,7);ctx.fillStyle='rgba(142,59,70,.1)';ctx.fill();stroke(6);ctx.restore();
-  ctx.save();ctx.globalAlpha*=1-eI(prog(k,1.1,.4));ctx.translate(CX+jx,by);ctx.beginPath();ctx.roundRect(-150,-70,300,140,12);ctx.fillStyle=GOLD2;ctx.fill();
-  ctx.font='700 46px Am';ctx.fillStyle=IVORY;ctx.textAlign='center';ctx.textBaseline='middle';ctx.direction='rtl';ctx.fillText('كُربة',0,2);ctx.restore();
-  const g=prog(k,1.2,1.3);if(g>0){for(let r=0;r<3;r++){const q=prog(k,1.2+r*.25,1.1);if(q>0)ring(CX,IY+40,lerp(90,360,eO(q)),2.5,GOLD,.55*(1-q))}softGlow(CX,IY+40,240,.5*(1-g*.5))}}
- if(kind=='ease'){ // jagged steep steps smooth into a gentle ramp; a ball rolls up it
-  const m=eIO(prog(k,.55,.6));const x0=CX-340,x1=CX+340,y0=IY+200,y1=IY-120;
-  const dr=eIO(prog(k,.1,.45));ctx.save();ctx.beginPath();ctx.rect(x0-20,y1-300,(x1-x0+40)*dr,800);ctx.clip();ctx.beginPath();
-  const N=6;for(let i=0;i<=N;i++){const sx=lerp(x1,x0,i/N),sy=lerp(y0,y1,i/N);const nx=lerp(x1,x0,(i+1)/N);
-   const pts=[[sx,sy],[sx,lerp(sy,lerp(y0,y1,(i+1)/N),1)]];// step corner
-   if(i==0)ctx.moveTo(sx,sy);if(i<N){const ny=lerp(y0,y1,(i+1)/N);const cx=lerp(sx,sx,m),cy=lerp(ny,sy,m);ctx.lineTo(lerp(sx,sx+(nx-sx)*.5,m),lerp(ny,(sy+ny)/2,m));ctx.lineTo(nx,ny)}}
-  ctx.lineTo(x0,y0);ctx.lineTo(x1,y0);ctx.closePath();ctx.fillStyle='rgba(142,59,70,.08)';ctx.fill();stroke(6);ctx.restore();
-  const bp=eIO(prog(k,1.15,1.1));if(k>1.05){const bx=lerp(x1-40,x0+60,bp),byy=lerp(y0,y1,(x1-40-bx)/(x1-x0))-36;ctx.save();ctx.translate(bx,byy);ctx.rotate(-bp*9);ctx.beginPath();ctx.arc(0,0,30,0,7);ctx.fillStyle=GOLD2;ctx.fill();ctx.beginPath();ctx.moveTo(0,-30);ctx.lineTo(0,30);ctx.strokeStyle=IVORY;ctx.lineWidth=4;ctx.stroke();ctx.restore();if(bp>.95)softGlow(bx,byy,160,.5)}}
- if(kind=='cover'){ // a small crack on a circle; a soft veil arcs over it, then a larger dome covers all
-  const cy=IY+90;ctx.beginPath();ctx.arc(CX,cy,90,0,7);ctx.fillStyle='rgba(142,59,70,.1)';ctx.fill();stroke(6);
-  const ck=eO(prog(k,.25,.25));if(ck>0){ctx.save();ctx.globalAlpha*=1-eIO(prog(k,.8,.4));ctx.beginPath();ctx.moveTo(CX-25,cy-60);ctx.lineTo(CX-25+20*ck,cy-30);ctx.lineTo(CX-25+5*ck,cy);ctx.lineTo(CX-25+30*ck,cy+30*ck);stroke(4,GOLD2);ctx.restore()}
-  const v=eIO(prog(k,.55,.5));if(v>0){ctx.save();ctx.beginPath();ctx.arc(CX,cy,150,Math.PI,Math.PI+Math.PI*v);ctx.lineTo(CX,cy);ctx.closePath();ctx.fillStyle='rgba(142,59,70,.12)';ctx.fill();ctx.beginPath();ctx.arc(CX,cy,150,Math.PI,Math.PI+Math.PI*v);stroke(6);ctx.restore()}
-  const d=eOB(prog(k,1.1,.6),1.4);if(d>0){ctx.save();ctx.beginPath();ctx.arc(CX,cy+60,lerp(150,300,d),Math.PI,0);stroke(5,GOLD2);ctx.restore();ctx.beginPath();ctx.moveTo(CX-330,cy+60);ctx.lineTo(CX+330,cy+60);stroke(3,'rgba(142,59,70,.4)');softGlow(CX,cy-60,280,.4*d)}}
- if(kind=='help'){ // one circle lifts another; a great arc from above holds them both up
-  const by=IY+200;const up=eOB(prog(k,.55,.5),1.6);
-  const s1=[CX+90,by-80],s2x=CX-90,s2y=lerp(by-80,by-210,up);
-  ctx.beginPath();ctx.moveTo(CX-360,by);ctx.lineTo(CX+360,by);stroke(3,'rgba(142,59,70,.4)');
-  ctx.beginPath();ctx.arc(s1[0],s1[1],70,0,7);ctx.fillStyle='rgba(142,59,70,.1)';ctx.fill();stroke(6);
-  const ar=eIO(prog(k,.25,.35));if(ar>0){ctx.beginPath();ctx.moveTo(s1[0]-60,s1[1]-20);ctx.quadraticCurveTo(CX,s1[1]-30,lerp(s1[0]-60,s2x+40,ar),lerp(s1[1]-20,s2y+50,ar));stroke(6,GOLD2)}
-  ctx.beginPath();ctx.arc(s2x,s2y,70,0,7);ctx.fillStyle='rgba(142,59,70,.1)';ctx.fill();stroke(6);
-  const h=eIO(prog(k,1.1,.7));if(h>0){const y=lerp(IY-560,IY-260,eO(h));ctx.save();ctx.beginPath();ctx.arc(CX,y+330,380,Math.PI*1.15,Math.PI*1.85);stroke(8,GOLD2);ctx.restore();softGlow(CX,IY-60,320,.35*h);
-   for(let i=0;i<3;i++){const q=prog(k,1.5+i*.15,.6);if(q<=0)continue;const x=CX+(i-1)*150;const yy=IY+40-eO(q)*60;ctx.save();ctx.globalAlpha*=(1-q)*.8+.2;ctx.beginPath();ctx.moveTo(x-16,yy+10);ctx.lineTo(x,yy-8);ctx.lineTo(x+16,yy+10);stroke(5,GOLD);ctx.restore()}}}
- if(kind=='path'){ // an open book; a path rises from its pages toward a glowing arch (gate)
-  const bx=CX,by=IY+120;const op=eOB(prog(k,.15,.5),1.5);
+ if(kind=='flow'){ // a spout pours a never-ending dashed stream into a pool; ripples keep going; a sprout grows from it
+  const sx=CX+190,sy=IY-170,px=CX-60,py=IY+200;
+  ctx.save();ctx.translate(sx,sy);ctx.beginPath();ctx.roundRect(-10,-40,150,56,20);ctx.fillStyle='rgba(142,59,70,.12)';ctx.fill();stroke(6);ctx.beginPath();ctx.moveTo(-10,-12);ctx.lineTo(-40,-12);stroke(10);ctx.restore();
+  const op=eIO(prog(k,.3,.5));if(op>0){ctx.save();ctx.beginPath();ctx.moveTo(sx-40,sy-6);ctx.bezierCurveTo(sx-140,sy-6,px+60,lerp(sy,py,.4),lerp(sx-40,px+30,op),lerp(sy-6,py-20,op));ctx.setLineDash([22,16]);ctx.lineDashOffset=-k*90;stroke(8,GOLD2);ctx.restore()}
+  ctx.beginPath();ctx.ellipse(px,py,200,40,0,0,7);ctx.fillStyle=`rgba(142,59,70,${.06+.08*eO(prog(k,.7,.8))})`;ctx.fill();stroke(5);
+  if(k>.75){for(let r=0;r<3;r++){const q=((k-.75)*.8+r/3)%1;ctx.save();ctx.globalAlpha*=(1-q)*.7;ctx.beginPath();ctx.ellipse(px+30,py,lerp(20,180,q),lerp(5,34,q),0,0,7);stroke(2.5,GOLD);ctx.restore()}}
+  sprout(px-140,py-20,prog(k,1.3,1.0),1);sprout(px+150,py-14,prog(k,1.7,1.0),.7);
+  // infinity mark
+  const inf=prog(k,2.0,.8);if(inf>0){ctx.save();ctx.translate(CX,IY-330);ctx.beginPath();for(let i=0;i<=60*eIO(inf);i++){const s=i/60*Math.PI*2;const d=1+Math.sin(s)**2;const x=70*Math.cos(s)/d,y=70*Math.sin(s)*Math.cos(s)/d;i?ctx.lineTo(x,y):ctx.moveTo(x,y)}stroke(6,GOLD2);ctx.restore();softGlow(CX,IY-330,140,.4*inf)}}
+ if(kind=='light'){ // an open book; one light rises from it and passes to more and more points
+  const bx=CX,by=IY+230;const op=eOB(prog(k,.15,.5),1.5);
   ctx.save();ctx.translate(bx,by);for(const sd of[-1,1]){ctx.beginPath();ctx.moveTo(0,0);ctx.quadraticCurveTo(sd*80*op,-30*op,sd*170*op,-10*op);ctx.lineTo(sd*170*op,60);ctx.quadraticCurveTo(sd*80*op,40,0,70);ctx.closePath();ctx.fillStyle=BG_IN;ctx.fill();stroke(5)}
   ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(0,70);stroke(4);ctx.restore();
-  const pr=eIO(prog(k,.55,.9));if(pr>0){const pt=s=>[bx+Math.sin(s*Math.PI*1.6)*110*(1-s),lerp(by-20,IY-150,s)];ctx.save();ctx.setLineDash([16,16]);ctx.beginPath();for(let i=0;i<=40*pr;i++){const [x,y]=pt(i/40);i?ctx.lineTo(x,y):ctx.moveTo(x,y)}stroke(6,GOLD2);ctx.setLineDash([]);ctx.restore();
-   const [hx,hy]=pt(pr);dot(hx,hy,12)}
-  const gt=eOB(prog(k,1.3,.6),1.8);if(gt>0){ctx.save();ctx.translate(bx,IY-200);ctx.scale(gt,gt);ctx.beginPath();ctx.moveTo(-80,70);ctx.lineTo(-80,-20);ctx.arc(0,-20,80,Math.PI,0);ctx.lineTo(80,70);ctx.fillStyle='rgba(142,59,70,.1)';ctx.fill();stroke(7,GOLD2);ctx.restore();
-   const g=prog(k,1.6,1.2);softGlow(bx,IY-210,240,.3+.3*g);for(let r=0;r<2;r++){const q=prog(k,1.6+r*.35,1);if(q>0)ring(bx,IY-210,lerp(60,240,eO(q)),2.5,GOLD,.5*(1-q))}}}
+  const L0=[[bx,by-90]],L1=[[bx-170,IY-30],[bx,IY-70],[bx+170,IY-30]],L2=[];for(let i=0;i<7;i++)L2.push([bx-330+i*110,IY-230-Math.abs(i-3)*-8-(i%2)*40]);
+  const r0=eOB(prog(k,.45,.4),2);if(r0>0){dot(L0[0][0],L0[0][1],14*r0);softGlow(L0[0][0],L0[0][1],120,.5*r0)}
+  const lv=(A,B,t1,map)=>{B.forEach((p,i)=>{const s=A[map(i)],q=eIO(prog(k,t1+i*.06,.4));if(q<=0)return;ctx.beginPath();ctx.moveTo(s[0],s[1]);ctx.lineTo(lerp(s[0],p[0],q),lerp(s[1],p[1],q));stroke(3,'rgba(142,59,70,.55)');const d=eOB(prog(k,t1+.35+i*.06,.35),2.5);if(d>0){dot(p[0],p[1],12*d);softGlow(p[0],p[1],90,.35*d)}})};
+  lv(L0,L1,.85,()=>0);lv(L1,L2,1.35,i=>Math.min(2,Math.floor(i/2.4)));
+  if(k>2){for(let r=0;r<2;r++){const q=((k-2)*.6+r/2)%1;ring(bx,IY-80,lerp(60,380,q),2,GOLD,.4*(1-q))}}}
+ if(kind=='dua'){ // a tree grows (good offspring); soft waves rise from it up to a glowing arch, light comes back down
+  const gx=CX,gy=IY+250;ctx.beginPath();ctx.moveTo(CX-300,gy);ctx.lineTo(CX+300,gy);stroke(3,'rgba(142,59,70,.4)');
+  const g=prog(k,.15,1.0);if(g>0){const h=lerp(0,200,eO(g));ctx.beginPath();ctx.moveTo(gx,gy);ctx.lineTo(gx,gy-h);stroke(8,GOLD2);
+   const c=eOB(prog(k,.6,.6),1.8);if(c>0){ctx.save();ctx.translate(gx,gy-h-60);ctx.scale(c,c);ctx.beginPath();ctx.arc(-55,20,62,0,7);ctx.arc(55,20,62,0,7);ctx.moveTo(70,-30);ctx.arc(0,-30,70,0,7);ctx.fillStyle='rgba(142,59,70,.12)';ctx.fill();
+    ctx.beginPath();ctx.arc(-55,20,62,Math.PI*.5,Math.PI*1.45);ctx.arc(0,-30,70,Math.PI*1.1,Math.PI*1.9);ctx.arc(55,20,62,Math.PI*1.55,Math.PI*.5);ctx.closePath();stroke(6);ctx.restore()}}
+  for(let i=0;i<4;i++){const q=prog(k,1.1+i*.28,1.1);if(q<=0||q>=1)continue;const y=lerp(IY-80,IY-260,eO(q));ctx.save();ctx.globalAlpha*=Math.sin(q*Math.PI);ctx.beginPath();ctx.arc(gx,y+80,lerp(60,150,q),Math.PI*1.2,Math.PI*1.8);stroke(5,GOLD);ctx.restore()}
+  const ar=eOB(prog(k,1.6,.6),1.6);if(ar>0){ctx.save();ctx.translate(gx,IY-330);ctx.scale(ar,ar);ctx.beginPath();ctx.moveTo(-80,60);ctx.lineTo(-80,-10);ctx.arc(0,-10,80,Math.PI,0);ctx.lineTo(80,60);ctx.fillStyle='rgba(142,59,70,.1)';ctx.fill();stroke(7,GOLD2);ctx.restore();softGlow(gx,IY-340,220,.45*ar)}
+  const dn=prog(k,2.3,1.2);if(dn>0){for(let i=0;i<5;i++){const q=(dn*1.4+i*.2)%1;if(dn*1.4<i*.2)continue;const x=gx+(i-2)*46,y=lerp(IY-270,IY-110,q);ctx.save();ctx.globalAlpha*=Math.sin(q*Math.PI)*.9;dot(x,y,6);ctx.restore()}}}
  ctx.restore()}
 function item(it,t){if(t<it.t0-.05||t>it.t0+it.d+.05)return;const out=prog(t,it.t0+it.d-.32,.32);const a=1-eI(out);const dx=eI(out)*220;
  const inn=eO5(prog(t,it.t0,.45));ctx.save();ctx.translate(dx-(1-inn)*160,0);
- const nb=eOB(prog(t,it.t0+.05,.45),2.2);ctx.save();ctx.globalAlpha=a;ctx.translate(CX,330);ctx.scale(nb,nb);ctx.beginPath();ctx.arc(0,0,74,0,7);ctx.fillStyle=BONE;ctx.fill();ctx.beginPath();ctx.arc(0,0,74,-Math.PI/2,-Math.PI/2+Math.PI*2*eIO(prog(t,it.t0+.1,.6)));ctx.lineWidth=3;ctx.strokeStyle=GOLD;ctx.stroke();ctx.restore();
- word(it.n,CX,328,92,{...slam(t,it.t0+.12),a:slam(t,it.t0+.12).a*a,c:IVORY});
+ const nb=eOB(prog(t,it.t0+.05,.45),2.2);ctx.save();ctx.globalAlpha=a;ctx.translate(CX,230);ctx.scale(nb,nb);ctx.beginPath();ctx.arc(0,0,74,0,7);ctx.fillStyle=BONE;ctx.fill();ctx.beginPath();ctx.arc(0,0,74,-Math.PI/2,-Math.PI/2+Math.PI*2*eIO(prog(t,it.t0+.1,.6)));ctx.lineWidth=3;ctx.strokeStyle=GOLD;ctx.stroke();ctx.restore();
+ word(it.n,CX,228,92,{...slam(t,it.t0+.12),a:slam(t,it.t0+.12).a*a,c:IVORY});
  icon(it.ic,t,it.t0,a);
- const r=reveal(t,it.t0+.55,.5);word(it.title,CX,1100,100,{...r,a:r.a*a,c:GOLD,glow:22});
- const nl=typed(it.txt,1240,56,t,it.t0+.95,a);let py=1240+(nl-1)*56*1.45;
- pill('صحيح مسلم ٢٦٩٩',py+85,a*eO(prog(t,it.t0+1.4,.4)));ctx.restore()}
+ const r=reveal(t,it.t0+.55,.5);word(it.title,CX,1150,104,{...r,a:r.a*a,c:GOLD,glow:22});
+ const nl=typed(it.txt,1290,70,t,it.t0+1.0,a);let py=1290+(nl-1)*70*1.45;
+ pill('صحيح مسلم ١٦٣١',py+95,a*eO(prog(t,it.t0+1.5,.4)));ctx.restore()}
 function hook(t){if(t>TI+.1)return;const e=eI(prog(t,2.6,.3));const o={a:1-e,blur:e*20,s:1+e*.15};
- const s1=slam(t,.15);word('أي خير بتعملو لأخوك',CX,560,88,{...s1,...(e>0?o:{}),w:700});
- const s2=slam(t,.6);word('الله برجّعو ليك',CX,730,128,{...s2,...(e>0?o:{}),c:GOLD,glow:30});
- const r=reveal(t,1.3,.5);word('بنفس نوعو… وأكبر',CX,900,70,{...r,a:r.a*(1-e),w:500});
- const r2=reveal(t,1.9,.5);if(r2.a>0)pill('٥ أعمال في حديث واحد',1040+r2.dy,r2.a*(1-e));
- // mirror: a dot goes out, a bigger one returns
- const go=eIO(prog(t,.9,.5)),back=eIO(prog(t,1.45,.5));ctx.save();ctx.globalAlpha=1-e;
- ctx.beginPath();ctx.moveTo(CX-240,1220);ctx.lineTo(CX+240,1220);stroke(3,'rgba(142,59,70,.35)');
- if(go>0&&back<=0)dot(lerp(CX+240,CX-240,go),1220,12);if(back>0){const x=lerp(CX-240,CX+240,back);dot(x,1220,lerp(12,30,back));if(back>.95)softGlow(x,1220,140,.5)}
+ const s1=slam(t,.15);word('لمّن الزول يموت…',CX,520,88,{...s1,...(e>0?o:{}),w:700});
+ const s2=slam(t,.6);word('عملو كلو بيقيف',CX,690,124,{...s2,...(e>0?o:{}),c:GOLD,glow:30});
+ const r=reveal(t,1.9,.5);word('إلا ٣ حاجات بتفضل شغّالة',CX,860,70,{...r,a:r.a*(1-e),w:500});
+ const r2=reveal(t,2.2,.4);if(r2.a>0)pill('حديث في صحيح مسلم',990+r2.dy,r2.a*(1-e));
+ // a line of deeds flowing; it is cut, the dots fall, three stay and glow
+ ctx.save();ctx.globalAlpha=1-e;const y=1210,cut=prog(t,1.45,.9);const lp=eIO(prog(t,.9,.45));
+ ctx.beginPath();ctx.moveTo(CX-300,y);ctx.lineTo(CX-300+600*lp,y);stroke(3,`rgba(142,59,70,${.35*(1-eO(cut))})`);
+ if(cut>0&&cut<.6){const c=1-cut/.6;ctx.save();ctx.globalAlpha*=c;ctx.beginPath();ctx.moveTo(CX-40,y-60);ctx.lineTo(CX+40,y+60);stroke(5,GOLD2);ctx.restore()}
+ const keep=[2,5,8];for(let i=0;i<11;i++){const x0=CX-300+i*60,x=((x0-CX+300+t*80)%600)+CX-300;if(lp<(x-CX+300)/600)continue;
+  if(keep.includes(i)){const g=eO(prog(t,1.8,.5));const kx=lerp(x,CX+(keep.indexOf(i)-1)*150,g);dot(kx,y,lerp(9,22,g));if(g>.5)softGlow(kx,y,110,.4*g)}
+  else{const f=eI(cut);ctx.save();ctx.globalAlpha*=1-f;dot(x,y+f*260,9);ctx.restore()}}
  ctx.restore()}
 function intro(t){if(t<TI-.05||t>T0+.05)return;const k=t-TI;const out=prog(t,T0-.32,.32);const a=1-eI(out);ctx.save();ctx.translate(eI(out)*220,0);ctx.globalAlpha=a;
- // balance: deed ↔ reward, settles level
- const cy=640;const dr=eIO(prog(k,.1,.5));ctx.beginPath();ctx.moveTo(CX,cy+200);ctx.lineTo(CX,cy+200-220*dr);stroke(6);
- const st=prog(k,.6,1.2);const ang=k<.6?-.25*eO(prog(k,.3,.3)):-.25*Math.exp(-4*st)*Math.cos(st*11);
- if(dr>.9){ctx.save();ctx.translate(CX,cy-20);ctx.rotate(ang);ctx.beginPath();ctx.moveTo(-260,0);ctx.lineTo(260,0);stroke(6);
-  for(const [sd,lb] of[[1,'عملك'],[-1,'جزاؤك']]){ctx.save();ctx.translate(sd*260,0);ctx.rotate(-ang);ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(-60,110);ctx.moveTo(0,0);ctx.lineTo(60,110);stroke(3,'rgba(142,59,70,.6)');
-   ctx.beginPath();ctx.ellipse(0,115,85,20,0,0,Math.PI);ctx.fillStyle='rgba(142,59,70,.12)';ctx.fill();stroke(5);word(lb,0,80,44,{a:eO(prog(k,.5,.4)),c:GOLD2});ctx.restore()}
-  ctx.restore();dot(CX,cy-20,12)}
- if(st>.85)softGlow(CX,cy+40,320,.3*eO(prog(k,1.5,.5)));
- const r0=reveal(t,TI+1.35,.5);word('الجزاء من جنس العمل',CX,920,84,{...r0,c:GOLD,glow:24});
- const lp=eIO(prog(k,.35,.5));ctx.beginPath();ctx.moveTo(CX-200*lp,1010);ctx.lineTo(CX+200*lp,1010);stroke(2,GOLD);
- const r=reveal(t,TI+.6,.5);if(r.a>0){ctx.save();ctx.globalAlpha*=r.a;ctx.translate(0,r.dy);ctx.direction='rtl';ctx.textBaseline='middle';ctx.fillStyle=BONE;
+ // hourglass: sand runs, stops; three threads keep flowing out of it
+ const hx=CX,hy=520;const dr=eIO(prog(k,.05,.5));ctx.save();ctx.translate(hx,hy);ctx.scale(dr,dr);
+ ctx.beginPath();ctx.moveTo(-110,-170);ctx.lineTo(110,-170);ctx.lineTo(18,0);ctx.lineTo(110,170);ctx.lineTo(-110,170);ctx.lineTo(-18,0);ctx.closePath();ctx.fillStyle='rgba(142,59,70,.06)';ctx.fill();stroke(6);
+ ctx.beginPath();ctx.moveTo(-140,-170);ctx.lineTo(140,-170);ctx.moveTo(-140,170);ctx.lineTo(140,170);stroke(8,GOLD2);
+ const s=cl(prog(k,.3,.85));const top=lerp(110,0,s),bot=lerp(0,110,s);
+ ctx.beginPath();ctx.moveTo(-top*.8,-160+ (110-top)*1.4);ctx.lineTo(top*.8,-160+(110-top)*1.4);ctx.lineTo(0,-10);ctx.closePath();if(top>2){ctx.fillStyle=GOLD2;ctx.fill()}
+ ctx.beginPath();ctx.moveTo(-bot*.85,160);ctx.lineTo(bot*.85,160);ctx.lineTo(0,160-bot*1.0);ctx.closePath();ctx.fillStyle=GOLD2;ctx.fill();
+ if(s>0&&s<1){ctx.beginPath();ctx.moveTo(0,-10);ctx.lineTo(0,160-bot);stroke(3,GOLD2)}ctx.restore();
+ if(k>1.15){const st=prog(k,1.15,.35);if(st<1)ring(hx,hy,lerp(60,260,eO(st)),3,GOLD,.6*(1-st))}
+ for(let i=0;i<3;i++){const q=eIO(prog(k,1.3+i*.12,.6));if(q<=0)continue;const ex=hx+(i-1)*260;ctx.save();ctx.beginPath();ctx.moveTo(hx+(i-1)*60,hy+175);ctx.quadraticCurveTo(hx+(i-1)*80,hy+260,lerp(hx,ex,q),lerp(hy+175,hy+300,q));ctx.setLineDash([12,12]);ctx.lineDashOffset=-k*50;stroke(4,GOLD);ctx.restore();if(q>.95){dot(ex,hy+300,12);softGlow(ex,hy+300,90,.35)}}
+ const r=reveal(t,TI+.9,.5);if(r.a>0){ctx.save();ctx.globalAlpha*=r.a;ctx.translate(0,r.dy);ctx.direction='rtl';ctx.textBaseline='middle';ctx.fillStyle=BONE;
   ctx.font='400 58px Am';const s1='قال رسول الله ';const w1=ctx.measureText(s1).width;ctx.font='64px Saw';const w2=ctx.measureText('ﷺ').width;ctx.font='400 58px Am';const w3=ctx.measureText(' :').width;const tot=w1+w2+w3;
-  ctx.textAlign='right';ctx.fillText(s1,CX+tot/2,1100);ctx.font='64px Saw';ctx.fillStyle=GOLD;ctx.fillText('ﷺ',CX+tot/2-w1,1106);ctx.font='400 58px Am';ctx.fillStyle=BONE;ctx.fillText(' :',CX+tot/2-w1-w2,1100);ctx.restore()}
- pill(SRC,1220,eO(prog(t,TI+1.7,.4)));
+  ctx.textAlign='right';ctx.fillText(s1,CX+tot/2,940);ctx.font='64px Saw';ctx.fillStyle=GOLD;ctx.fillText('ﷺ',CX+tot/2-w1,946);ctx.font='400 58px Am';ctx.fillStyle=BONE;ctx.fillText(' :',CX+tot/2-w1-w2,940);ctx.restore()}
+ const lp=eIO(prog(k,.75,.5));ctx.beginPath();ctx.moveTo(CX-200*lp,1010);ctx.lineTo(CX+200*lp,1010);stroke(2,GOLD);
+ const nl=typed(HAD,1100,76,t,TI+1.7,1);
+ pill(SRC,1100+(nl-1)*76*1.45+105,eO(prog(t,TI+3.3,.4)));
  ctx.restore()}
 function outro(t){if(t<OUT)return;const e=eI(prog(t,DUR-.45,.45));
- const r=reveal(t,OUT+.15,.5);word('أنو واحد فيهم حتعملو الليلة؟',CX,700,70,{...r,a:r.a*(1-e)});
- const r2=reveal(t,OUT+.55,.5);word('اكتب رقمو في التعليقات',CX,830,58,{...r2,a:r2.a*(1-e),w:500,c:GOLD});
+ const r=reveal(t,OUT+.15,.5);word('ياتو واحدة بتبدأ بيها الليلة؟',CX,700,70,{...r,a:r.a*(1-e)});
+ const r2=reveal(t,OUT+.55,.5);word('اكتب رقمها في التعليقات',CX,830,58,{...r2,a:r2.a*(1-e),w:500,c:GOLD});
  const r3=reveal(t,OUT+1.0,.5);if(r3.a>0)pill('احفظ الفيديو وشاركه مع زول محتاجه',980+r3.dy,r3.a*(1-e));
  const kk=prog(t,OUT+1.9,.6);if(kk>0){ctx.save();ctx.globalAlpha=eO(kk)*(1-e);const y=1300;ctx.font='700 54px In';ctx.textBaseline='middle';
   ctx.fillStyle=BONE;ctx.textAlign='right';ctx.fillText('20',CX-150,y-34);ctx.fillStyle=GOLD;ctx.fillText('26',CX-150,y+34);ctx.fillStyle=BONE;ctx.fillRect(CX-134,y-66,3,132*eIO(prog(t,OUT+2.0,.5)));
@@ -152,7 +145,6 @@ function draw(t){ctx.setTransform(1,0,0,1,0,0);ctx.filter='none';ctx.globalAlpha
  ctx.drawImage(GR[Math.floor(t*24)%4],0,0,W,H);const f=prog(t,DUR-.4,.4);if(f>0){ctx.globalAlpha=f;ctx.fillStyle=BG_OUT;ctx.fillRect(0,0,W,H);ctx.globalAlpha=1}}
 window.render=t=>{draw(t);return cv.toDataURL('image/png')};
 window.drawCover=()=>{ctx.setTransform(1,0,0,1,0,0);ctx.filter='none';ctx.globalAlpha=1;bg(2);
- ctx.save();ctx.translate(0,-170);{const cy=640;ctx.beginPath();ctx.moveTo(CX,cy+200);ctx.lineTo(CX,cy-20);stroke(6);ctx.beginPath();ctx.moveTo(CX-260,cy-20);ctx.lineTo(CX+260,cy-20);stroke(6);
-  for(const [sd,lb] of[[1,'عملك'],[-1,'جزاؤك']]){ctx.save();ctx.translate(CX+sd*260,cy-20);ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(-60,110);ctx.moveTo(0,0);ctx.lineTo(60,110);stroke(3,'rgba(142,59,70,.6)');ctx.beginPath();ctx.ellipse(0,115,85,20,0,0,Math.PI);ctx.fillStyle='rgba(142,59,70,.12)';ctx.fill();stroke(5);word(lb,0,80,44,{c:GOLD2});ctx.restore()}dot(CX,cy-20,12);softGlow(CX,cy+40,320,.3)}ctx.restore();
- word('أي خير بتعملو لأخوك',CX,830,84);word('الله برجّعو ليك',CX,1000,130,{c:GOLD,glow:30});word('بنفس نوعو… وأكبر',CX,1160,66,{w:500});
- pill('٥ أعمال في صحيح مسلم',1320,1);ctx.drawImage(GR[0],0,0,W,H);return cv.toDataURL('image/png')};
+ {const y=560;ctx.beginPath();ctx.moveTo(CX-330,y);ctx.lineTo(CX+330,y);stroke(3,'rgba(142,59,70,.25)');for(let i=0;i<3;i++){const x=CX+(i-1)*200;softGlow(x,y,130,.45);dot(x,y,26);ring(x,y,52,2.5,GOLD,.5);ring(x,y,80,2,GOLD,.25)}}
+ word('لمّن الزول يموت…',CX,800,84);word('٣ أعمال',CX,975,150,{c:GOLD,glow:30});word('بتفضل شغّالة ليهو',CX,1145,80);
+ pill('حديث في صحيح مسلم ١٦٣١',1300,1);ctx.drawImage(GR[0],0,0,W,H);return cv.toDataURL('image/png')};
